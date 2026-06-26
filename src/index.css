@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-poppins text-brown bg-parchment;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-cinzel;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .gold-text {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(135deg, #C9A84C 0%, #E8C96A 50%, #A07830 100%);
+  }
+
+  .gold-border {
+    border-image: linear-gradient(135deg, #C9A84C, #E8C96A, #A07830) 1;
+  }
+
+  .section-pad {
+    @apply py-20 px-4 md:px-8 lg:px-16;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-3 font-cinzel text-sm tracking-widest text-brown font-semibold rounded-none transition-all duration-300;
+    background: linear-gradient(135deg, #C9A84C, #E8C96A, #A07830);
+  }
+
+  .btn-primary:hover {
+    @apply shadow-lg;
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-8 py-3 font-cinzel text-sm tracking-widest border border-gold text-gold rounded-none transition-all duration-300;
+  }
+
+  .btn-outline:hover {
+    @apply bg-gold text-brown;
+  }
+
+  .section-title {
+    @apply font-cinzel text-3xl md:text-4xl lg:text-5xl text-brown tracking-wider;
+  }
+
+  .section-subtitle {
+    @apply font-poppins text-brown-mid text-sm tracking-[0.2em] uppercase mt-2 mb-6;
+  }
+
+  .divider-gold {
+    @apply flex items-center gap-4 my-6;
+  }
+
+  .divider-gold::before,
+  .divider-gold::after {
+    content: '';
+    @apply flex-1 h-px;
+    background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+
+  .shadow-gold {
+    box-shadow: 0 4px 24px rgba(201, 168, 76, 0.2);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Accordion animation */
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
